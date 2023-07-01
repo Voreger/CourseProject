@@ -1,16 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.courseproject.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #00296B;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutX="14.0" layoutY="74.0" prefHeight="315.0" prefWidth="672.0" style="-fx-background-color: #003F88;">
+         <children>
+            <Button layoutX="212.0" layoutY="204.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="248.0" style="-fx-background-color: #FDC500;" text="Войти" />
+            <Button layoutX="212.0" layoutY="266.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="248.0" style="-fx-background-color: FDC500;" text="Зарегистрироваться" />
+            <PasswordField layoutX="212.0" layoutY="140.0" prefHeight="13.0" prefWidth="248.0" promptText="Пароль" style="-fx-background-color: #003F88; -fx-border-color: FFD500; -fx-border-radius: 10;">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </PasswordField>
+            <TextField layoutX="212.0" layoutY="77.0" prefHeight="35.0" prefWidth="248.0" promptText="Логин" style="-fx-background-color: #003F88; -fx-border-color: FFD500; -fx-border-radius: 10;">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <Label layoutX="248.0" layoutY="14.0" text="Авторизация" textAlignment="CENTER" textFill="#fdc500">
+               <font>
+                  <Font name="Impact" size="31.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Label layoutX="170.0" layoutY="14.0" text="Мебельная фабрика" textAlignment="CENTER" textFill="#fdc500">
+         <font>
+            <Font name="Candara Bold" size="40.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
