@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.courseproject.PersonalCabinetController">
+    <children>
+        <AnchorPane layoutX="14.0" layoutY="74.0" prefHeight="315.0" prefWidth="672.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #BBC8CA; -fx-border-radius: 3; -fx-border-width: 2;">
+            <children>
+                <Button fx:id="SignInButton" layoutX="27.0" layoutY="244.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="132.0" style="-fx-background-color: #DBAC95; -fx-background-radius: 10;" text="Изменить данные" />
+                <Label layoutX="246.0" layoutY="14.0" text="Личный кабинет" textAlignment="CENTER" textFill="#bbc8ca">
+                    <font>
+                        <Font name="Candara Bold" size="31.0" />
+                    </font>
+                </Label>
+            <Text fill="#dbac95" layoutX="27.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Имя:">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Text>
+            <Text fill="#dbac95" layoutX="27.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Логин:">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Text>
+            <Text fx:id="firstNameTextField" layoutX="93.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="569.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fill="#dbac95" layoutX="27.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Пол:">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Text>
+            <Text fill="#dbac95" layoutX="27.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Фамилия:">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Text>
+            <Text fx:id="secondNameTextField" layoutX="150.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="512.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fx:id="loginTextField" layoutX="110.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="552.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fx:id="genderTextField" layoutX="85.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="569.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            </children>
+        </AnchorPane>
+        <Label layoutX="138.0" layoutY="14.0" text="Мебельная фабрика" textAlignment="CENTER" textFill="#5f4552">
+            <font>
+                <Font name="Candara Bold" size="47.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>

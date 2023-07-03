@@ -16,14 +16,13 @@ public class dbConnection {
                 String short_name = result.getString("short_name" );
                 System.out.print(" Vacant post: " );
                 System.out.print(" id = " + id);
-                System.out.print(" , name = \" " + name + " \" " );
-                System.out.println(" , short name = \" " + short_name + " \" . " );
+                System.out.print(" , name = \"" + name + " \"" );
+                System.out.println(" , short name = \"" + short_name + " \". " );
             }
             connection.close();
         }
         catch(Exception e){
             System.out.println(e);
         }
-        System.out.println(1);
     }
 }
