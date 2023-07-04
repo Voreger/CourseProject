@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/19.0.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.FurnitureOrderController">
+    <children>
+        <AnchorPane layoutX="159.0" layoutY="80.0" prefHeight="313.0" prefWidth="527.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #BBC8CA; -fx-border-radius: 3; -fx-border-width: 2;">
+            <children>
+                <Label layoutX="168.0" layoutY="14.0" text="Заказать мебель" textAlignment="CENTER" textFill="#bbc8ca">
+                    <font>
+                        <Font name="Candara Bold" size="26.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <Label layoutX="138.0" layoutY="14.0" text="Мебельная фабрика" textAlignment="CENTER" textFill="#5f4552">
+            <font>
+                <Font name="Candara Bold" size="47.0" />
+            </font>
+        </Label>
+        <AnchorPane layoutX="2.0" layoutY="80.0" prefHeight="313.0" prefWidth="150.0" style="-fx-background-color: #bbc8ca; -fx-background-radius: 10; -fx-border-radius: 10;">
+            <children>
+                <Label layoutX="43.0" layoutY="7.0" text="Меню" textAlignment="CENTER" textFill="WHITE">
+                    <font>
+                        <Font name="Candara Bold" size="24.0" />
+                    </font>
+                </Label>
+                <Button fx:id="PersonalCabinetButton" layoutX="9.0" layoutY="47.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="132.0" style="-fx-background-color: #DBAC95; -fx-background-radius: 10;" text="Личный кабинет">
+                    <font>
+                        <Font size="14.0" />
+                    </font></Button>
+                <Button fx:id="MyOrdersButton" layoutX="9.0" layoutY="105.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="132.0" style="-fx-background-color: #DBAC95; -fx-background-radius: 10;" text="Мои заказы">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+                <Button layoutX="9.0" layoutY="164.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="132.0" style="-fx-background-color: #F5E7E1; -fx-background-radius: 10;" text="Заказать мебель">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
