@@ -3,6 +3,8 @@ package Controllers;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import Model.Const;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -44,39 +46,11 @@ public class PersonalCabinetController {
         genderTextField.setText("Мужской");
 
         mainPageButton.setOnAction(actionEvent -> {
-            mainPageButton.getScene().getWindow().hide();
-
-            FXMLLoader loader1 = new FXMLLoader();
-            loader1.setLocation(getClass().getResource("/fxmlFiles/mainPage.fxml"));
-            try {
-                loader1.load();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-
-            Parent root = loader1.getRoot();
-            Stage stage = new Stage();
-            stage.setTitle("Мебельная фабрика");
-            stage.setScene(new Scene(root));
-            stage.show();
+            Const.showWindow(mainPageButton, "mainPage.fxml");
         });
 
         DataChangeButton.setOnAction(actionEvent -> {
-            DataChangeButton.getScene().getWindow().hide();
-
-            FXMLLoader loader1 = new FXMLLoader();
-            loader1.setLocation(getClass().getResource("/fxmlFiles/dataChange.fxml"));
-            try {
-                loader1.load();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-
-            Parent root = loader1.getRoot();
-            Stage stage = new Stage();
-            stage.setTitle("Мебельная фабрика");
-            stage.setScene(new Scene(root));
-            stage.show();
+            Const.showWindow(DataChangeButton, "dataChange.fxml");
         });
     }
 

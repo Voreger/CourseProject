@@ -4,11 +4,14 @@ package Controllers;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import Model.Const;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class MainPageController {
@@ -29,23 +32,16 @@ public class MainPageController {
     private Button PersonalCabinetButton;
 
     @FXML
+    private Button exitButton;
+
+    @FXML
     void initialize() {
         PersonalCabinetButton.setOnAction(actionEvent -> {
-            PersonalCabinetButton.getScene().getWindow().hide();
+            Const.showWindow(PersonalCabinetButton, "personalCabinet.fxml");
+        });
 
-            FXMLLoader loader1 = new FXMLLoader();
-            loader1.setLocation(getClass().getResource("/fxmlFiles/personalCabinet.fxml"));
-            try {
-                loader1.load();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-
-            Parent root = loader1.getRoot();
-            Stage stage = new Stage();
-            stage.setTitle("Мебельная фабрика");
-            stage.setScene(new Scene(root));
-            stage.show();
+        exitButton.setOnAction(actionEvent -> {
+            Const.showWindow(exitButton, "authorization.fxml");
         });
 
     }

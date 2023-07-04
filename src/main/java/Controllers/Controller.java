@@ -1,5 +1,6 @@
 package Controllers;
 
+import Model.Const;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -31,39 +32,11 @@ public class Controller {
             System.out.println(loginField.getText());
             System.out.println(passwordField.getText());
 
-            SignInButton.getScene().getWindow().hide();
-
-            FXMLLoader loader1 = new FXMLLoader();
-            loader1.setLocation(getClass().getResource("/fxmlFiles/mainPage.fxml"));
-            try {
-                loader1.load();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-
-            Parent root = loader1.getRoot();
-            Stage stage = new Stage();
-            stage.setTitle("Мебельная фабрика");
-            stage.setScene(new Scene(root));
-            stage.show();
+            Const.showWindow(SignInButton, "mainPage.fxml");
 
         });
         SignUpButton.setOnAction(actionEvent -> {
-            SignUpButton.getScene().getWindow().hide();
-
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/fxmlFiles/signIn.fxml"));
-            try {
-                loader.load();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-
-            Parent root = loader.getRoot();
-            Stage stage = new Stage();
-            stage.setTitle("Мебельная фабрика");
-            stage.setScene(new Scene(root));
-            stage.show();
+            Const.showWindow(SignUpButton, "signIn.fxml");
         });
 
     }

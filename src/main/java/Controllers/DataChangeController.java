@@ -3,6 +3,8 @@ package Controllers;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import Model.Const;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -55,39 +57,11 @@ public class DataChangeController {
     @FXML
     void initialize() {
         CancelButton.setOnAction(actionEvent -> {
-            CancelButton.getScene().getWindow().hide();
-
-            FXMLLoader loader1 = new FXMLLoader();
-            loader1.setLocation(getClass().getResource("/fxmlFiles/personalCabinet.fxml"));
-            try {
-                loader1.load();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-
-            Parent root = loader1.getRoot();
-            Stage stage = new Stage();
-            stage.setTitle("Мебельная фабрика");
-            stage.setScene(new Scene(root));
-            stage.show();
+            Const.showWindow(CancelButton, "personalCabinet.fxml");
         });
 
         SaveDataButton.setOnAction(actionEvent -> {
-            SaveDataButton.getScene().getWindow().hide();
-
-            FXMLLoader loader1 = new FXMLLoader();
-            loader1.setLocation(getClass().getResource("/fxmlFiles/mainPage.fxml"));
-            try {
-                loader1.load();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-
-            Parent root = loader1.getRoot();
-            Stage stage = new Stage();
-            stage.setTitle("Мебельная фабрика");
-            stage.setScene(new Scene(root));
-            stage.show();
+            Const.showWindow(SaveDataButton, "mainPage.fxml");
         });
 
     }
