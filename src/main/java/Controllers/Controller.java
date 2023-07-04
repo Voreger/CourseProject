@@ -1,4 +1,4 @@
-package com.example.courseproject;
+package Controllers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

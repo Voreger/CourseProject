@@ -1,4 +1,5 @@
-package com.example.courseproject;
+package Model;
+
 import java.sql.*;
 public class dbConnection {
     public dbConnection(){

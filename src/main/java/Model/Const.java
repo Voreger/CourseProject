@@ -1,4 +1,4 @@
-package com.example.courseproject;
+package Model;
 
 public class Const {
     public static final String dbPassword = "12345678";

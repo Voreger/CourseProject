@@ -4,6 +4,8 @@ module com.example.courseproject {
     requires java.sql;
 
 
-    opens com.example.courseproject to javafx.fxml;
-    exports com.example.courseproject;
+    exports Controllers;
+    opens Controllers to javafx.fxml;
+    exports Model;
+    opens Model to javafx.fxml;
 }
