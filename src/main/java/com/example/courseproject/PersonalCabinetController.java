@@ -25,6 +25,8 @@ public class PersonalCabinetController {
 
     @FXML
     private Text loginTextField;
+    @FXML
+    private Button mainPageButton;
 
     @FXML
     private Text secondNameTextField;

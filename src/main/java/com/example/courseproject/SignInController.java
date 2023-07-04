@@ -44,6 +44,7 @@ public class SignInController {
 
     @FXML
     void initialize() {
+
         SignUpButton.setOnAction(actionEvent -> {
             SignUpButton.getScene().getWindow().hide();
 
