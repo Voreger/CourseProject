@@ -10,7 +10,7 @@
     <children>
         <AnchorPane layoutX="14.0" layoutY="74.0" prefHeight="315.0" prefWidth="672.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #BBC8CA; -fx-border-radius: 3; -fx-border-width: 2;">
             <children>
-                <Button fx:id="SignInButton" layoutX="27.0" layoutY="244.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="132.0" style="-fx-background-color: #DBAC95; -fx-background-radius: 10;" text="Изменить данные" />
+                <Button fx:id="DataChangeButton" layoutX="27.0" layoutY="244.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="132.0" style="-fx-background-color: #DBAC95; -fx-background-radius: 10;" text="Изменить данные" />
                 <Label layoutX="246.0" layoutY="14.0" text="Личный кабинет" textAlignment="CENTER" textFill="#bbc8ca">
                     <font>
                         <Font name="Candara Bold" size="31.0" />

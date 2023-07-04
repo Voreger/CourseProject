@@ -45,7 +45,7 @@ public class MainPageController {
             Stage stage = new Stage();
             stage.setTitle("Мебельная фабрика");
             stage.setScene(new Scene(root));
-            stage.showAndWait();
+            stage.show();
         });
 
     }

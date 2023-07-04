@@ -60,7 +60,7 @@ public class SignInController {
             Stage stage = new Stage();
             stage.setTitle("Мебельная фабрика");
             stage.setScene(new Scene(root));
-            stage.showAndWait();
+            stage.show();
         });
 
     }
