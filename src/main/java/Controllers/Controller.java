@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.scene.text.Text;
 
 import java.io.IOException;
 
@@ -25,6 +26,9 @@ public class Controller {
 
     @FXML
     private PasswordField passwordField;
+
+    @FXML
+    private Text errorText;
     @FXML
     void initialize(){
         SignInButton.setOnAction(actionEvent -> {

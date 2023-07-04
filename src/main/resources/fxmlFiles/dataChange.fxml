@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/19.0.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.DataChangeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.DataChangeController">
     <children>
         <AnchorPane layoutX="14.0" layoutY="74.0" prefHeight="315.0" prefWidth="672.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #BBC8CA; -fx-border-radius: 3; -fx-border-width: 2;">
             <children>
@@ -22,22 +22,22 @@
                 </Label>
                 <Button fx:id="CancelButton" layoutX="377.0" layoutY="244.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="160.0" style="-fx-background-color: #DBAC95; -fx-background-radius: 10;" text="Отмена" />
             <Group layoutX="114.0" layoutY="149.0" />
-            <RadioButton fx:id="FemaleRadioButton" layoutX="219.0" layoutY="175.0" mnemonicParsing="false" text="Женский">
+            <RadioButton fx:id="FemaleRadioButton" layoutX="61.0" layoutY="208.0" mnemonicParsing="false" text="Женский">
                <toggleGroup>
                   <ToggleGroup fx:id="Group" />
                </toggleGroup>
             </RadioButton>
-            <TextField fx:id="FirstNameTextField" layoutX="92.0" layoutY="70.0" promptText="Имя" style="-fx-border-radius: 5; -fx-background-radius: 5;">
+            <TextField fx:id="FirstNameTextField" layoutX="60.0" layoutY="70.0" prefHeight="35.0" prefWidth="230.0" promptText="Имя" style="-fx-border-radius: 5; -fx-background-radius: 5;">
                <font>
                   <Font size="16.0" />
                </font>
             </TextField>
-            <TextField fx:id="SecondNameTextField" layoutX="92.0" layoutY="118.0" promptText="Фамилия" style="-fx-border-radius: 5; -fx-background-radius: 5;">
+            <TextField fx:id="SecondNameTextField" layoutX="60.0" layoutY="118.0" prefHeight="35.0" prefWidth="230.0" promptText="Фамилия" style="-fx-border-radius: 5; -fx-background-radius: 5;">
                <font>
                   <Font size="16.0" />
                </font>
             </TextField>
-            <RadioButton fx:id="MaleRadioButton" layoutX="92.0" layoutY="175.0" mnemonicParsing="false" selected="true" text="Мужской" toggleGroup="$Group" />
+            <RadioButton fx:id="MaleRadioButton" layoutX="60.0" layoutY="175.0" mnemonicParsing="false" selected="true" text="Мужской" toggleGroup="$Group" />
             <TextField fx:id="LoginTextField" layoutX="358.0" layoutY="70.0" promptText="Логин" style="-fx-border-radius: 5; -fx-background-radius: 5;">
                <font>
                   <Font size="16.0" />
@@ -53,6 +53,16 @@
                   <Font size="16.0" />
                </font>
             </PasswordField>
+            <Group id="Group1" layoutX="163.0" layoutY="175.0">
+               <children>
+                  <RadioButton fx:id="shopRadioButton" mnemonicParsing="false" selected="true" text="Работник магазина">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="Group1" />
+                     </toggleGroup>
+                  </RadioButton>
+               </children>
+            </Group>
+            <RadioButton fx:id="factoryRadioButton" layoutX="164.0" layoutY="208.0" mnemonicParsing="false" text="Работник фабрики" toggleGroup="$Group1" />
             </children>
         </AnchorPane>
         <Label layoutX="138.0" layoutY="14.0" text="Мебельная фабрика" textAlignment="CENTER" textFill="#5f4552">

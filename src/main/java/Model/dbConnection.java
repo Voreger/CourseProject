@@ -3,27 +3,36 @@ package Model;
 import java.sql.*;
 public class dbConnection {
     public dbConnection(){
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver" );
-            Connection connection = DriverManager.getConnection(
-                    "jdbc:mysql://"+ Const.dbHost + ":" + Const.dbPort + "/" + Const.dbName,
-                    Const.dbUser , Const.dbPassword);
-            Statement statement = connection.createStatement();
-            String query = "SELECT * FROM Posts" ;
-            ResultSet result = statement.executeQuery(query);
-            while(result.next()){
-                int id = result.getInt("id" );
-                String name = result.getString("name" );
-                String short_name = result.getString("short_name" );
-                System.out.print(" Vacant post: " );
-                System.out.print(" id = " + id);
-                System.out.print(" , name = \"" + name + " \"" );
-                System.out.println(" , short name = \"" + short_name + " \". " );
-            }
-            connection.close();
-        }
-        catch(Exception e){
-            System.out.println(e);
-        }
     }
+    public Connection getDbConnection() throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver" );
+        Connection connection = DriverManager.getConnection(
+                "jdbc:mysql://"+ Const.dbHost + ":" + Const.dbPort + "/" + Const.dbName,
+                Const.dbUser , Const.dbPassword);
+
+        return connection;
+    }
+    public void signUpUser(User user){
+        String insert = "INSERT INTO Users(login, password, first_name, second_name, gender, role) VALUES(?,?,?,?,?,?)";
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = getDbConnection().prepareStatement(insert);
+
+            preparedStatement.setString(1, user.login );
+            preparedStatement.setString(2, user.password);
+            preparedStatement.setString(3, user.firstName);
+            preparedStatement.setString(4, user.secondName);
+            preparedStatement.setString(5, user.gender);
+            preparedStatement.setString(6, user.role);
+
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+
 }

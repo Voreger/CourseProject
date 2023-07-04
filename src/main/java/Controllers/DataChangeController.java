@@ -55,13 +55,19 @@ public class DataChangeController {
     private TextField SecondNameTextField;
 
     @FXML
+    private RadioButton factoryRadioButton;
+
+    @FXML
+    private RadioButton shopRadioButton;
+
+    @FXML
     void initialize() {
         CancelButton.setOnAction(actionEvent -> {
             Const.showWindow(CancelButton, "personalCabinet.fxml");
         });
 
         SaveDataButton.setOnAction(actionEvent -> {
-            Const.showWindow(SaveDataButton, "mainPage.fxml");
+            Const.showWindow(SaveDataButton, "authorization.fxml");
         });
 
     }

@@ -3,14 +3,15 @@ package Controllers;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.scene.text.Text;
+import Model.Const;
+import Model.User;
+import Model.dbConnection;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 public class SignInController {
@@ -22,19 +23,29 @@ public class SignInController {
     private URL location;
 
     @FXML
+    private ToggleGroup Group;
+
+    @FXML
+    private ToggleGroup Group1;
+    @FXML
+    private Text ErrorText;
+    @FXML
     private Button SignUpButton;
+
+    @FXML
+    private RadioButton factoryRadioButton;
 
     @FXML
     private RadioButton femaleRadioButton;
 
     @FXML
+    private TextField firstNameField;
+
+    @FXML
+    private TextField lastNameField;
+
+    @FXML
     private TextField loginField;
-
-    @FXML
-    private TextField loginField2;
-
-    @FXML
-    private TextField loginField3;
 
     @FXML
     private RadioButton manRadioButton;
@@ -43,26 +54,38 @@ public class SignInController {
     private PasswordField passwordField;
 
     @FXML
+    private RadioButton shopRadioButton;
+
+    @FXML
     void initialize() {
+        dbConnection dbConnect = new dbConnection();
 
-        SignUpButton.setOnAction(actionEvent -> {
-            SignUpButton.getScene().getWindow().hide();
-
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/fxmlFiles/authorization.fxml"));
-            try {
-                loader.load();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+        SignUpButton.setOnAction(actionEvent ->{
+            if(loginField.getText().isEmpty() || passwordField.getText().isEmpty() || firstNameField.getText().isEmpty() || lastNameField.getText().isEmpty())
+                ErrorText.setVisible(true);
+            else {
+                dbConnect.signUpUser(getUser());
+                Const.showWindow(SignUpButton, "authorization.fxml");
             }
-
-            Parent root = loader.getRoot();
-            Stage stage = new Stage();
-            stage.setTitle("Мебельная фабрика");
-            stage.setScene(new Scene(root));
-            stage.show();
         });
 
+    }
+    public User getUser(){
+        String password = String.valueOf(passwordField.getText().hashCode());
+        String gender = "";
+        String role = "";
+        if (manRadioButton.isSelected())
+            gender = "Мужской";
+        else if (femaleRadioButton.isSelected())
+            gender = "Женский";
+
+        if (shopRadioButton.isSelected())
+            role = "Работник магазина";
+        else if (factoryRadioButton.isSelected())
+            role = "Работник фабрики";
+        User user = new User(firstNameField.getText(), lastNameField.getText(), loginField.getText(), password, gender, role);
+
+        return user;
     }
 
 }
