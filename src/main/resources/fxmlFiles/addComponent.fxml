@@ -5,11 +5,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.FurnitureOrderController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AddComponentController">
     <children>
         <AnchorPane layoutX="159.0" layoutY="80.0" prefHeight="313.0" prefWidth="527.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #BBC8CA; -fx-border-radius: 3; -fx-border-width: 2;">
             <children>
-                <Label layoutX="168.0" layoutY="14.0" text="Заказать мебель" textAlignment="CENTER" textFill="#bbc8ca">
+                <Label layoutX="152.0" layoutY="14.0" text="Создать компонент" textAlignment="CENTER" textFill="#bbc8ca">
                     <font>
                         <Font name="Candara Bold" size="26.0" />
                     </font>
@@ -37,11 +37,8 @@
                         <Font size="14.0" />
                     </font>
                 </Button>
-                <Button fx:id="furnitureOrderShop" layoutX="9.0" layoutY="164.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="132.0" style="-fx-background-color: #F5E7E1; -fx-background-radius: 10;" text="Заказать мебель">
-                    <font>
-                        <Font size="14.0" />
-                    </font>
-                </Button>
+                <Button layoutX="9.0" layoutY="164.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="132.0" style="-fx-background-color: #F5E7E1; -fx-background-radius: 10;" text="Cоздать компонент" />
+            <Button fx:id="checkSeriesButton" layoutX="10.0" layoutY="224.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="132.0" style="-fx-background-color: #DBAC95; -fx-background-radius: 10;" text="Просмотр линеек" />
             </children>
         </AnchorPane>
     </children>

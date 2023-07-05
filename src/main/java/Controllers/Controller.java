@@ -77,10 +77,10 @@ public class Controller {
         }
 
         if (count>=1){
-            Const.showWindow(SignInButton, "mainPage.fxml");
-
             Const.user = new User(firstName,secondName, login, password, gender, role);
             Const.user.setId(id);
+
+            Const.showWindow(SignInButton, "mainPage.fxml");
         } else {
             errorText.setVisible(true);
         }

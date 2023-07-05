@@ -17,7 +17,7 @@
       </ImageView>
         <AnchorPane layoutX="44.0" layoutY="80.0" prefHeight="305.0" prefWidth="613.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #BBC8CA; -fx-border-radius: 3; -fx-border-width: 2;">
             <children>
-                <Button fx:id="PersonalCabinetButton" layoutX="34.0" layoutY="63.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="550.0" style="-fx-background-color: #DBAC95; -fx-background-radius: 10;" text="Личный кабинет">
+                <Button fx:id="PersonalCabinetButton" layoutX="34.0" layoutY="71.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="550.0" style="-fx-background-color: #DBAC95; -fx-background-radius: 10;" text="Личный кабинет">
                <font>
                   <Font size="20.0" />
                </font></Button>
@@ -26,12 +26,22 @@
                         <Font name="Candara Bold" size="31.0" />
                     </font>
                 </Label>
-            <Button fx:id="MyOrdersButton" layoutX="33.0" layoutY="116.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="550.0" style="-fx-background-color: #DBAC95; -fx-background-radius: 10;" text="Мои заказы">
+            <Button fx:id="MyOrdersButton" layoutX="33.0" layoutY="124.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="550.0" style="-fx-background-color: #DBAC95; -fx-background-radius: 10;" text="Текущие заказы">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="OrderFurnitureButton" layoutX="33.0" layoutY="169.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="550.0" style="-fx-background-color: #DBAC95; -fx-background-radius: 10;" text="Заказать мебель">
+            <Button fx:id="OrderFurnitureShopButton" layoutX="32.0" layoutY="178.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="550.0" style="-fx-background-color: #DBAC95; -fx-background-radius: 10;" text="Заказать мебель">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="addComponentFactoryButton" layoutX="32.0" layoutY="178.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="550.0" style="-fx-background-color: #DBAC95; -fx-background-radius: 10;" text="Cоздать компонент">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="checkSeriesFactoryButton" layoutX="34.0" layoutY="233.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="550.0" style="-fx-background-color: #DBAC95; -fx-background-radius: 10;" text="Посмотреть линейки мебели">
                <font>
                   <Font size="20.0" />
                </font>

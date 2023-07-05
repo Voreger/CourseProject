@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 
 public class MyOrdersController {
 
+
     @FXML
     private ResourceBundle resources;
 
@@ -22,13 +23,36 @@ public class MyOrdersController {
     private Button PersonalCabinetButton;
 
     @FXML
+    private Button addComponentFactoryButton;
+
+    @FXML
+    private Button checkSeriesFactoryButton;
+
+    @FXML
     void initialize() {
+
+        if (Const.user.getRole().equals("Работник магазина")){
+            addComponentFactoryButton.setVisible(false);
+            checkSeriesFactoryButton.setVisible(false);
+        }
+        else{
+            OrderFurnitureButton.setVisible(false);
+        }
+
         PersonalCabinetButton.setOnAction(actionEvent -> {
             Const.showWindow(PersonalCabinetButton, "personalCabinet.fxml");
         });
 
         OrderFurnitureButton.setOnAction(actionEvent -> {
             Const.showWindow(OrderFurnitureButton, "furnitureOrder.fxml");
+        });
+
+        checkSeriesFactoryButton.setOnAction(actionEvent -> {
+            Const.showWindow(checkSeriesFactoryButton, "checkSeries.fxml");
+        });
+
+        addComponentFactoryButton.setOnAction(actionEvent -> {
+            Const.showWindow(addComponentFactoryButton, "addComponent.fxml");
         });
     }
 

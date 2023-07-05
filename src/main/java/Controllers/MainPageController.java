@@ -26,16 +26,32 @@ public class MainPageController {
     private Button MyOrdersButton;
 
     @FXML
-    private Button OrderFurnitureButton;
+    private Button OrderFurnitureShopButton;
 
     @FXML
     private Button PersonalCabinetButton;
 
     @FXML
+    private Button addComponentFactoryButton;
+
+    @FXML
+    private Button checkSeriesFactoryButton;
+
+    @FXML
     private Button exitButton;
+
 
     @FXML
     void initialize() {
+        if (Const.user.getRole().equals("Работник магазина")){
+            addComponentFactoryButton.setVisible(false);
+            checkSeriesFactoryButton.setVisible(false);
+        }
+        else{
+            OrderFurnitureShopButton.setVisible(false);
+        }
+
+
         PersonalCabinetButton.setOnAction(actionEvent -> {
             Const.showWindow(PersonalCabinetButton, "personalCabinet.fxml");
         });
@@ -48,8 +64,16 @@ public class MainPageController {
             Const.showWindow(MyOrdersButton, "myOrders.fxml");
         });
 
-        OrderFurnitureButton.setOnAction(actionEvent -> {
-            Const.showWindow(OrderFurnitureButton, "furnitureOrder.fxml");
+        OrderFurnitureShopButton.setOnAction(actionEvent -> {
+            Const.showWindow(OrderFurnitureShopButton, "furnitureOrder.fxml");
+        });
+
+        checkSeriesFactoryButton.setOnAction(actionEvent -> {
+            Const.showWindow(checkSeriesFactoryButton, "checkSeries.fxml");
+        });
+
+        addComponentFactoryButton.setOnAction(actionEvent -> {
+            Const.showWindow(addComponentFactoryButton, "addComponent.fxml");
         });
 
     }
