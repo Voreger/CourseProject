@@ -40,10 +40,10 @@ public class PersonalCabinetController {
 
     @FXML
     void initialize() {
-        firstNameTextField.setText("Владимир");
-        secondNameTextField.setText("Горьков");
-        loginTextField.setText("Voreger1234");
-        genderTextField.setText("Мужской");
+        firstNameTextField.setText(Const.user.getFirstName());
+        secondNameTextField.setText(Const.user.getSecondName());
+        loginTextField.setText(Const.user.getLogin());
+        genderTextField.setText(Const.user.getGender());
 
         mainPageButton.setOnAction(actionEvent -> {
             Const.showWindow(mainPageButton, "mainPage.fxml");

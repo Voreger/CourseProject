@@ -1,6 +1,8 @@
 package Controllers;
 
 import Model.Const;
+import Model.User;
+import Model.dbConnection;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,6 +14,8 @@ import javafx.stage.Stage;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class Controller {
 
@@ -32,17 +36,54 @@ public class Controller {
     @FXML
     void initialize(){
         SignInButton.setOnAction(actionEvent -> {
-            System.out.println("Кнопка войти");
-            System.out.println(loginField.getText());
-            System.out.println(passwordField.getText());
-
-            Const.showWindow(SignInButton, "mainPage.fxml");
+                loginUser();
 
         });
         SignUpButton.setOnAction(actionEvent -> {
             Const.showWindow(SignUpButton, "signIn.fxml");
         });
+    }
+    public void loginUser(){
+        dbConnection dbConnect = new dbConnection();
+        User user = new User();
+        user.setLogin(loginField.getText());
+        user.setPassword(passwordField.getText());
+        ResultSet resultSet = dbConnect.checkUser(user);
+        int count = 0;
 
+        String firstName = "";
+        String secondName = "";
+        String login = "";
+        String password = "";
+        String gender = "";
+        String role = "";
+        int id = 5;
+
+
+        try {
+            while (resultSet.next()) {
+                count++;
+                id = resultSet.getInt("user_id");
+                firstName = resultSet.getString("first_name");
+                secondName = resultSet.getString("second_name");
+                login = resultSet.getString("login");
+                password =  resultSet.getString("password");
+                gender = resultSet.getString("gender");
+                role = resultSet.getString("role");
+
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
+        if (count>=1){
+            Const.showWindow(SignInButton, "mainPage.fxml");
+
+            Const.user = new User(firstName,secondName, login, password, gender, role);
+            Const.user.setId(id);
+        } else {
+            errorText.setVisible(true);
+        }
     }
 
 }

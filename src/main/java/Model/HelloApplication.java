@@ -15,7 +15,6 @@ public class HelloApplication extends Application {
         stage.setTitle("Мебельная фабрика");
         stage.setScene(scene);
         stage.show();
-        dbConnection db = new dbConnection();
     }
     public static void main(String[] args) {
         launch();
