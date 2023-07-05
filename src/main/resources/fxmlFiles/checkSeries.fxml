@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.CheckSeriesController">
     <children>
@@ -14,6 +15,22 @@
                         <Font name="Candara Bold" size="26.0" />
                     </font>
                 </Label>
+            <AnchorPane layoutX="120.0" layoutY="57.0" prefHeight="236.0" prefWidth="289.0">
+               <children>
+                  <Text fx:id="NameSeriesText" layoutX="72.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Название линейки">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="11.0" layoutY="67.0" lineSpacing="2.0" pickOnBounds="true" strokeType="OUTSIDE" strokeWidth="0.0" text="В линейку входит:" wrappingWidth="266.13671875">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="SeriesText" layoutX="11.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+               </children>
+            </AnchorPane>
+            <Button fx:id="NextSeriesButton" layoutX="409.0" layoutY="237.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="91.0" text="Следующая линейка" textAlignment="CENTER" wrapText="true" />
             </children>
         </AnchorPane>
         <Label layoutX="138.0" layoutY="14.0" text="Мебельная фабрика" textAlignment="CENTER" textFill="#5f4552">

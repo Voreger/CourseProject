@@ -75,4 +75,23 @@ public class dbConnection {
         }
     }
 
+    public void addComponent(String type, String price){
+        String insert =
+                "INSERT INTO Component_type(type, price) VALUES (?, ?)";
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = getDbConnection().prepareStatement(insert);
+
+            preparedStatement.setString(1, type);
+            preparedStatement.setString(2, price);
+
+
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }
