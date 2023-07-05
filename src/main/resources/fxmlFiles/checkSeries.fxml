@@ -17,7 +17,7 @@
                 </Label>
             <AnchorPane layoutX="120.0" layoutY="57.0" prefHeight="236.0" prefWidth="289.0">
                <children>
-                  <Text fx:id="NameSeriesText" layoutX="72.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Название линейки" textAlignment="CENTER">
+                  <Text fx:id="NameSeriesText" layoutX="72.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Название линейки" textAlignment="CENTER">
                      <font>
                         <Font size="17.0" />
                      </font>
