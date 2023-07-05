@@ -92,6 +92,95 @@ public class dbConnection {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+
+        ResultSet resultSet = null;
+
+        String select = "SELECT type_id FROM Component_type WHERE type=? and price=?";
+
+        PreparedStatement preparedStatement1 = null;
+        try {
+            preparedStatement1 = getDbConnection().prepareStatement(select);
+
+            preparedStatement1.setString(1, type);
+            preparedStatement1.setString(2, price);
+
+            resultSet = preparedStatement1.executeQuery();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        String id = "";
+
+        try {
+            resultSet.next();
+            id = resultSet.getString("type_id");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
+        String insert1 =
+                "INSERT INTO Component(type_id) VALUES (?)";
+        PreparedStatement preparedStatement2 = null;
+        try {
+            preparedStatement2 = getDbConnection().prepareStatement(insert1);
+
+            preparedStatement2.setString(1, id);
+
+
+            preparedStatement2.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public ResultSet checkOrder(){
+        ResultSet resultSet = null;
+        return resultSet;
     }
 
+    public ResultSet checkSeries(String name){
+        ResultSet resultSet = null;
+
+        String select = "SELECT Furniture_type.type from Series inner join Furniture_series USING(series_id) INNER JOIN Furniture USING(furniture_id) " +
+                "INNER join Furniture_type USING(furniture_id) where Series.name = ?";
+
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = getDbConnection().prepareStatement(select);
+
+            preparedStatement.setString(1, name);
+
+            resultSet = preparedStatement.executeQuery();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        return resultSet;
+    }
+
+    public ResultSet allSeries(){
+
+        ResultSet resultSet = null;
+
+        String select = "SELECT name FROM Series";
+
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = getDbConnection().prepareStatement(select);
+
+            resultSet = preparedStatement.executeQuery();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        return resultSet;
+    }
 }
