@@ -78,15 +78,15 @@ public class dbConnection {
         }
     }
 
-    public void addComponent(String type, String price){
+    public void addComponent(Component component){
         String insert =
                 "INSERT INTO Component_type(type, price) VALUES (?, ?)";
         PreparedStatement preparedStatement = null;
         try {
             preparedStatement = getDbConnection().prepareStatement(insert);
 
-            preparedStatement.setString(1, type);
-            preparedStatement.setString(2, price);
+            preparedStatement.setString(1, component.getType());
+            preparedStatement.setString(2, component.getPrice());
 
 
             preparedStatement.executeUpdate();
@@ -104,8 +104,8 @@ public class dbConnection {
         try {
             preparedStatement1 = getDbConnection().prepareStatement(select);
 
-            preparedStatement1.setString(1, type);
-            preparedStatement1.setString(2, price);
+            preparedStatement1.setString(1, component.getType());
+            preparedStatement1.setString(2, component.getPrice());
 
             resultSet = preparedStatement1.executeQuery();
         } catch (SQLException e) {

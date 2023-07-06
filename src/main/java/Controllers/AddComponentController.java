@@ -3,6 +3,7 @@ package Controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import Model.Component;
 import Model.Const;
 import Model.dbConnection;
 import javafx.fxml.FXML;
@@ -62,7 +63,8 @@ public class AddComponentController {
             if(componentNameTextField.getText().isEmpty() || componentPriceTextField.getText().isEmpty())
                 ErrorText.setVisible(true);
             else{
-                dbConnect.addComponent(componentNameTextField.getText(), componentPriceTextField.getText());
+                Component component = new Component(componentNameTextField.getText(), componentPriceTextField.getText());
+                dbConnect.addComponent(component);
                 componentPriceTextField.clear();
                 componentNameTextField.clear();
             }
