@@ -2,11 +2,14 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/19.0.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.CheckSeriesController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.CheckSeriesController">
     <children>
         <AnchorPane layoutX="159.0" layoutY="80.0" prefHeight="313.0" prefWidth="527.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #BBC8CA; -fx-border-radius: 3; -fx-border-width: 2;">
             <children>
@@ -15,25 +18,12 @@
                         <Font name="Candara Bold" size="26.0" />
                     </font>
                 </Label>
-            <AnchorPane layoutX="120.0" layoutY="57.0" prefHeight="236.0" prefWidth="289.0">
-               <children>
-                  <Text fx:id="NameSeriesText" layoutX="72.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Название линейки" textAlignment="CENTER">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="11.0" layoutY="67.0" lineSpacing="2.0" pickOnBounds="true" strokeType="OUTSIDE" strokeWidth="0.0" text="В линейку входит:" wrappingWidth="266.13671875">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="SeriesText" layoutX="11.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0">
-                     <font>
-                        <Font size="24.0" />
-                     </font></Text>
-               </children>
-            </AnchorPane>
-            <Button fx:id="NextSeriesButton" layoutX="409.0" layoutY="237.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="91.0" text="Следующая линейка" textAlignment="CENTER" wrapText="true" />
+            <TableView fx:id="seriesTable" layoutX="21.0" layoutY="57.0" prefHeight="240.0" prefWidth="493.0">
+              <columns>
+                <TableColumn fx:id="nameColumn" prefWidth="136.0" text="Название линейки" />
+                <TableColumn fx:id="furnitureColumn" minWidth="0.0" prefWidth="356.0" text="Содержание линейки" />
+              </columns>
+            </TableView>
             </children>
         </AnchorPane>
         <Label layoutX="138.0" layoutY="14.0" text="Мебельная фабрика" textAlignment="CENTER" textFill="#5f4552">
@@ -48,18 +38,31 @@
                         <Font name="Candara Bold" size="24.0" />
                     </font>
                 </Label>
-                <Button fx:id="PersonalCabinetButton" layoutX="9.0" layoutY="47.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="132.0" style="-fx-background-color: #DBAC95; -fx-background-radius: 10;" text="Личный кабинет">
-                    <font>
-                        <Font size="14.0" />
-                    </font></Button>
-                <Button fx:id="MyOrdersButton" layoutX="9.0" layoutY="105.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="132.0" style="-fx-background-color: #DBAC95; -fx-background-radius: 10;" text="Текущие заказы">
+                <Button fx:id="MyOrdersButton" layoutX="10.0" layoutY="51.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="132.0" style="-fx-background-color: #DBAC95; -fx-background-radius: 10;" text="Текущие заказы">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </Button>
-                <Button fx:id="addComponentButton" layoutX="9.0" layoutY="164.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="132.0" style="-fx-background-color: #DBAC95; -fx-background-radius: 10;" text="Cоздать компонент" />
-                <Button layoutX="10.0" layoutY="224.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="132.0" style="-fx-background-color: #F5E7E1; -fx-background-radius: 10;" text="Просмотр линеек" />
+                <Button fx:id="addComponentButton" layoutX="10.0" layoutY="103.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="132.0" style="-fx-background-color: #DBAC95; -fx-background-radius: 10;" text="Cоздать компонент" />
+                <Button layoutX="9.0" layoutY="215.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="132.0" style="-fx-background-color: #F5E7E1; -fx-background-radius: 10;" text="Просмотр линеек" />
+            <Button fx:id="furnitureCheckButton" layoutX="10.0" layoutY="158.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="132.0" style="-fx-background-color: #DBAC95; -fx-background-radius: 10;" text="Просмотр мебели" />
             </children>
         </AnchorPane>
+      <ImageView fitHeight="45.0" fitWidth="52.0" layoutX="626.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Files/account.png" />
+         </image>
+      </ImageView>
+          <Button fx:id="PersonalCabinetButton" layoutX="621.0" layoutY="21.0" mnemonicParsing="false" opacity="0.0" prefHeight="45.0" prefWidth="56.0" style="-fx-background-color: #DBAC95; -fx-background-radius: 10;" text="Личный кабинет">
+              <font>
+                  <Font size="14.0" />
+              </font>
+      </Button>
+      <ImageView fitHeight="45.0" fitWidth="52.0" layoutX="55.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Files/home.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="mainPageButton" layoutX="52.0" layoutY="21.0" mnemonicParsing="false" opacity="0.0" prefHeight="44.0" prefWidth="52.0" text="Button" />
     </children>
 </AnchorPane>

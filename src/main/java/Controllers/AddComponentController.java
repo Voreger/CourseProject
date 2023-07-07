@@ -38,6 +38,12 @@ public class AddComponentController {
     private TextField componentNameTextField;
 
     @FXML
+    private Button furnitureCheckButton;
+
+
+    @FXML
+    private Button mainPageButton;
+    @FXML
     private TextField componentPriceTextField;
     @FXML
     void initialize() {
@@ -55,6 +61,12 @@ public class AddComponentController {
 
         MyOrdersButton.setOnAction(actionEvent -> {
             Const.showWindow(MyOrdersButton, "myOrders.fxml");
+        });
+        furnitureCheckButton.setOnAction(actionEvent -> {
+            Const.showWindow(furnitureCheckButton, "furnitureCheck.fxml");
+        });
+        mainPageButton.setOnAction(actionEvent -> {
+            Const.showWindow(mainPageButton, "mainPage.fxml");
         });
 
 

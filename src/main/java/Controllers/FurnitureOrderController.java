@@ -34,6 +34,8 @@ public class FurnitureOrderController {
 
     @FXML
     private Text errorText;
+    @FXML
+    private Button mainPageButton;
 
     @FXML
     private TextField faxShopTextField;
@@ -42,6 +44,8 @@ public class FurnitureOrderController {
     private TextField furnitureNameTextField;
 
 
+    @FXML
+    private Button furnitureCheckButton;
     @FXML
     private Button saveButton;
 
@@ -53,6 +57,12 @@ public class FurnitureOrderController {
 
         PersonalCabinetButton.setOnAction(actionEvent -> {
             Const.showWindow(PersonalCabinetButton, "personalCabinet.fxml");
+        });
+        mainPageButton.setOnAction(actionEvent -> {
+            Const.showWindow(mainPageButton,"mainPage.fxml");
+        });
+        furnitureCheckButton.setOnAction(actionEvent -> {
+            Const.showWindow(furnitureCheckButton, "furnitureCheck.fxml");
         });
 
 

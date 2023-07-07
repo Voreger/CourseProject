@@ -55,6 +55,8 @@ public class SignInController {
 
     @FXML
     private RadioButton shopRadioButton;
+    @FXML
+    private Button cancelButton;
 
     @FXML
     void initialize() {
@@ -67,6 +69,9 @@ public class SignInController {
                 dbConnect.signUpUser(getUser());
                 Const.showWindow(SignUpButton, "authorization.fxml");
             }
+        });
+        cancelButton.setOnAction(actionEvent -> {
+            Const.showWindow(cancelButton, "authorization.fxml");
         });
 
     }

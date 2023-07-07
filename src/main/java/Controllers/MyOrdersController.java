@@ -5,25 +5,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import Model.Order;
 import Model.User;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 
 import Model.Const;
 import Model.dbConnection;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 
 public class MyOrdersController {
 
-
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
-    @FXML
-    private Button NextOrderButton;
 
     @FXML
     private Button OrderFurnitureButton;
@@ -35,19 +30,28 @@ public class MyOrdersController {
     private Button addComponentFactoryButton;
 
     @FXML
+    private TableColumn<Order, String> addressColumn;
+
+    @FXML
     private Button checkSeriesFactoryButton;
 
     @FXML
-    private Text orderDateText;
+    private TableColumn<Order, String> customerColumn;
 
     @FXML
-    private Text orderFurnitureText;
+    private TableColumn<Order, String> dateColumn;
 
     @FXML
-    private Text shopAddressText;
-
+    private TableColumn<Order, String> furnitureColumn;
     @FXML
-    private Text userNameText;
+    private Button mainPageButton;
+    @FXML
+    private Button furnitureCheckButton;
+    @FXML
+    private TableView<Order> ordersTable;
+
+    ObservableList<Order> orderList = FXCollections.observableArrayList();
+
     @FXML
     void initialize() {
 
@@ -75,50 +79,47 @@ public class MyOrdersController {
         addComponentFactoryButton.setOnAction(actionEvent -> {
             Const.showWindow(addComponentFactoryButton, "addComponent.fxml");
         });
+        mainPageButton.setOnAction(actionEvent -> {
+            Const.showWindow(addComponentFactoryButton, "mainPage.fxml");
+        });
+        furnitureCheckButton.setOnAction(actionEvent -> {
+            Const.showWindow(furnitureCheckButton, "furnitureCheck.fxml");
+        });
 
         //Обработка отображения текущих заказов
         dbConnection dbConnect = new dbConnection();
         ResultSet orderSet = dbConnect.allOrder();
 
-        String Orders = "";
-        int count = 1;
-        try {
-            orderSet.next();
-            orderDateText.setText(String.valueOf(orderSet.getDate("date")));
-            shopAddressText.setText(orderSet.getString("address"));
-            userNameText.setText(orderSet.getString("first_name") + " " + orderSet.getString("second_name"));
-            ResultSet orderFurnitureSet = dbConnect.checkOrder(String.valueOf(orderSet.getInt("order_id")));
-            while (orderFurnitureSet.next()) {
-                Orders += count + ") " + orderFurnitureSet.getString("type") + "\n";
-                count++;
-            }
-            orderFurnitureText.setText(Orders);
+        furnitureColumn.setCellValueFactory(new PropertyValueFactory<Order, String>("furniture"));
+        dateColumn.setCellValueFactory(new PropertyValueFactory<Order, String>("date"));
+        customerColumn.setCellValueFactory(new PropertyValueFactory<Order, String>("customerName"));
+        addressColumn.setCellValueFactory(new PropertyValueFactory<Order, String>("store"));
 
+        ordersTable.setItems(orderList);
+
+        try {
+            while(orderSet.next()) {
+                String name = orderSet.getString("first_name") + " " + orderSet.getString("second_name");
+                String date = String.valueOf(orderSet.getDate("date"));
+                String address = orderSet.getString("address");
+
+                ResultSet orderFurnitureSet = dbConnect.checkOrder(String.valueOf(orderSet.getInt("order_id")));
+                String orders = "";
+                Boolean isFirst = true;
+                while (orderFurnitureSet.next()) {
+                    if (!isFirst)
+                        orders+= ", ";
+                    orders += orderFurnitureSet.getString("type");
+                    isFirst = false;
+                }
+                Order order = new Order(name, date, address, orders);
+                orderList.add(order);
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
-        NextOrderButton.setOnAction(actionEvent -> {
-            try {
-                int count1 = 1;
-                orderSet.next();
-                if(orderSet.isLast())
-                    NextOrderButton.setVisible(false);
-                orderDateText.setText(String.valueOf(orderSet.getDate("date")));
-                shopAddressText.setText(orderSet.getString("address"));
-                userNameText.setText(orderSet.getString("first_name") + " " + orderSet.getString("second_name"));
-                String Orders1 = "";
-                ResultSet orderFurnitureSet = dbConnect.checkOrder(String.valueOf(orderSet.getInt("order_id")));
-                while (orderFurnitureSet.next()) {
-                    Orders1 += count1 + ") " + orderFurnitureSet.getString("type") + "\n";
-                    count1++;
-                }
-                orderFurnitureText.setText(Orders1);
 
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-        });
     }
 
 }

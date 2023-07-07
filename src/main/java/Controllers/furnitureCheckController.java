@@ -1,20 +1,13 @@
 package Controllers;
 
-
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import Model.Const;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
 
-public class MainPageController {
+public class furnitureCheckController {
 
     @FXML
     private ResourceBundle resources;
@@ -23,10 +16,7 @@ public class MainPageController {
     private URL location;
 
     @FXML
-    private Button MyOrdersButton;
-
-    @FXML
-    private Button OrderFurnitureShopButton;
+    private Button OrderFurnitureButton;
 
     @FXML
     private Button PersonalCabinetButton;
@@ -35,14 +25,14 @@ public class MainPageController {
     private Button addComponentFactoryButton;
 
     @FXML
-    private Button furnitureCheckButton;
-
-    @FXML
     private Button checkSeriesFactoryButton;
 
-    @FXML
-    private Button exitButton;
 
+    @FXML
+    private Button myOrdersButton;
+
+    @FXML
+    private Button mainPageButton;
 
     @FXML
     void initialize() {
@@ -51,24 +41,15 @@ public class MainPageController {
             checkSeriesFactoryButton.setVisible(false);
         }
         else{
-            OrderFurnitureShopButton.setVisible(false);
+            OrderFurnitureButton.setVisible(false);
         }
-
 
         PersonalCabinetButton.setOnAction(actionEvent -> {
             Const.showWindow(PersonalCabinetButton, "personalCabinet.fxml");
         });
 
-        exitButton.setOnAction(actionEvent -> {
-            Const.showWindow(exitButton, "authorization.fxml");
-        });
-
-        MyOrdersButton.setOnAction(actionEvent -> {
-            Const.showWindow(MyOrdersButton, "myOrders.fxml");
-        });
-
-        OrderFurnitureShopButton.setOnAction(actionEvent -> {
-            Const.showWindow(OrderFurnitureShopButton, "furnitureOrder.fxml");
+        OrderFurnitureButton.setOnAction(actionEvent -> {
+            Const.showWindow(OrderFurnitureButton, "furnitureOrder.fxml");
         });
 
         checkSeriesFactoryButton.setOnAction(actionEvent -> {
@@ -78,9 +59,13 @@ public class MainPageController {
         addComponentFactoryButton.setOnAction(actionEvent -> {
             Const.showWindow(addComponentFactoryButton, "addComponent.fxml");
         });
-        furnitureCheckButton.setOnAction(actionEvent -> {
-            Const.showWindow(furnitureCheckButton, "furnitureCheck.fxml");
+        mainPageButton.setOnAction(actionEvent -> {
+            Const.showWindow(addComponentFactoryButton, "mainPage.fxml");
         });
+        myOrdersButton.setOnAction(actionEvent -> {
+            Const.showWindow(myOrdersButton,"myOrders.fxml");
+        });
+
     }
 
 }
