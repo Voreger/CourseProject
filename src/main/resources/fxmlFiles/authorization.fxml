@@ -34,7 +34,7 @@
                   <Font name="Candara" size="30.0" />
                </font>
             </Label>
-            <Text fx:id="errorText" fill="RED" layoutX="30.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Вы ввели некоректные данные" visible="false">
+            <Text fx:id="errorText" fill="RED" layoutX="30.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Вы ввели некорректные данные" visible="false">
                <font>
                   <Font size="17.0" />
                </font>

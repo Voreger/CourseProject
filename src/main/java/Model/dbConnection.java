@@ -354,4 +354,43 @@ public class dbConnection {
             throw new RuntimeException(e);
         }
     }
+    public ResultSet allFurniture(){
+        ResultSet resultSet = null;
+
+        String select = "SELECT Furniture.furniture_id, Furniture_type.type, Furniture.price FROM Furniture INNER JOIN Furniture_type USING(furniture_id)";
+
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = getDbConnection().prepareStatement(select);
+
+            resultSet = preparedStatement.executeQuery();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        return resultSet;
+    }
+    public ResultSet checkFurniture(String furnitureId){
+        ResultSet resultSet = null;
+
+        String select = "SELECT Component_type.type FROM Furniture INNER JOIN Furniture_component USING(furniture_id) " +
+                "JOIN Component USING(component_id) INNER JOIN Component_type USING(type_id) WHERE Furniture.furniture_id = ?";
+
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = getDbConnection().prepareStatement(select);
+
+            preparedStatement.setString(1, furnitureId);
+
+            resultSet = preparedStatement.executeQuery();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        return resultSet;
+    }
 }

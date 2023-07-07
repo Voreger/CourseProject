@@ -64,7 +64,7 @@
                </children>
             </Group>
             <RadioButton fx:id="factoryRadioButton" layoutX="164.0" layoutY="208.0" mnemonicParsing="false" text="Работник фабрики" toggleGroup="$Group1" />
-            <Text fx:id="errorText" fill="RED" layoutX="328.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Вы ввели некоректные данные" visible="false">
+            <Text fx:id="errorText" fill="RED" layoutX="328.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Вы ввели некорректные данные" visible="false">
                <font>
                   <Font size="20.0" />
                </font>
